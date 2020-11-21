@@ -1,0 +1,48 @@
+{% extends 'htmlfile/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+
+</head>
+<body>
+{% block abc %}
+<div class="jumbotron">
+
+<table class="table table-bordereless">
+    <thead class="border-bottom font-weight-bold">
+    <tr>
+        <th>Name</th>
+        <th>Rating</th>
+        <th>Date</th>
+        <th>Feedback</th>
+
+        <th> <a href="{% url 'feedback' %}" class="btn btn-outline-success">
+                <i class="fa fa-plus"></i>Add New
+            </a></th>
+
+    </tr>
+    </thead>
+    <tbody>
+{% for i in feed %}
+        <tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.rating }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.feedback }}</td>
+
+
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+
+    </div>
+
+{% endblock %}
+</body>
+</html>

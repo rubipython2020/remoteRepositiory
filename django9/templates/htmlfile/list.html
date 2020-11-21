@@ -1,0 +1,56 @@
+{% extends 'htmlfile/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+</head>
+<body>
+
+{% block abc %}
+    <div class="jumbotron">
+<table class="table table-bordereless">
+    <thead class="border-bottom font-weight-bold">
+    <tr>
+        <th>Course Name</th>
+        <th>Course Duration</th>
+        <th>Start Date</th>
+        <th>Timing</th>
+        <th>Trainer Name</th>
+        <th>Trainer Experince</th>
+        <th> <a href="{% url 'Cources' %}" class="btn btn-outline-success">
+                <i class="fa fa-plus"></i>Add New
+            </a></th>
+
+    </tr>
+    </thead>
+    <tbody>
+{% for courseform in courselist %}
+        <tr>
+        <td>{{ courseform.c_name }}</td>
+        <td>{{ courseform.c_dur }}</td>
+        <td>{{ courseform.date }}</td>
+        <td>{{ courseform.time }}</td>
+        <td>{{ courseform.c_trainer }}</td>
+        <td>{{ courseform.exp }}</td>
+
+        <td>
+            <form action="" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <a href="">
+                        <i class="fa fa-trash-o fa-lg text-danger float-right"></i>
+                    </a>
+
+                </form>
+        </td>
+
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+    </div>
+{% endblock %}
+</body>
+</html>

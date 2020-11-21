@@ -1,0 +1,72 @@
+{% extends 'htmlfile/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+</head>
+<body>
+{% block abc %}
+    <style>
+    img
+    {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        opacity: inherit;
+
+
+    }
+    </style>
+    <h1>Hii this is Gellery Page </h1>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+
+<img src="{% static 'bed.jpg' %}">
+            </div>
+        <div class="col-md-4">
+    <img src="{% static 'bea.jpg' %}">
+        </div>
+        <div class="col-md-4">
+    <img src="{% static 'edit.jpg' %}">
+        </div>
+        <div class="col-md-4">
+    <img src="{% static 'edit.jpg' %}">
+        </div>
+            <div class="col-md-4">
+    <img src="{% static 'edit.jpg' %}">
+            </div>
+        <div class="col-md-4">
+    <img src="{% static 'edit.jpg' %}">
+        </div>
+        <div class="col-md-4">
+    <img src="{% static 'edit.jpg' %}">
+        </div>
+        <div class="col-md-4">
+    <img src="{% static 'edit.jpg' %}">
+        </div>
+        <div class="col-md-4">
+    <img src="{% static 'edit.jpg' %}">
+        </div>
+        <div class="col-md-4">
+    <img src="{% static 'edit.jpg' %}">
+        </div>
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+</body>
+</html>

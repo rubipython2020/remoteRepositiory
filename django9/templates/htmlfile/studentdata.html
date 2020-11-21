@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+    <style>
+        form
+        {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-md-4">
+             <h1>Student Data Form</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <!--<label>Enter Your First Name</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" name="fname" class="form-control" placeholder="First Name" value="{{ i.fname }}">
+                        </div>
+                          <!--<label>Enter Your Last Name</label>-->
+                           <div class="col-md-6">
+                            <input type="text" name="lname" class="form-control" placeholder="Last Name">
+                        </div>
+                       </div>
+           <!-- <label>Enter Your Class Name</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+        <input type="text" name="cname" class="form-control" placeholder="Class Name">
+                    </div>
+            <!--<label>Enter Your Section Name</label>-->
+                        <div class="col-md-6">
+            <input type="text" name="sname" class="form-control" placeholder="Section Name">
+                    </div>
+                </div>
+            <!--<label>Enter Your Mobile Number</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+            <input type="text" name="mname" class="form-control" placeholder="Mobile Number">
+                    </div>
+            <!--<label>Enter Your Email ID</label>-->
+                        <div class="col-md-6">
+            <input type="text" name="email" class="form-control" placeholder="Email ID">
+                    </div>
+                </div>
+            <!--<label>Enter Your Telugu</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+            <input type="text" name="telugu" class="form-control" placeholder="Telugu Mark">
+                    </div>
+            <!--<label>Enter Your Hindi</label>-->
+                    <div class="col-md-6">
+            <input type="text" name="hindi" class="form-control" placeholder="Hindi Mark">
+                    </div>
+                </div>
+            <!--<label>Enter Your English</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+
+            <input type="text" name="english" class="form-control" placeholder="English Marks">
+                    </div>
+            <!--<label>Enter Your Math</label>-->
+                        <div class="col-md-6">
+            <input type="text" name="math" class="form-control" placeholder="Math Marks">
+                        </div>
+                </div>
+
+
+            <center>
+
+            <input type="submit" value="Save" class="btn btn-success" style="margin-top: 20px">
+                </center>
+                </form>
+
+
+
+
+        </div>
+        <div class="col-md-8">
+        {% if Studentdata %}
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Class Name</th>
+                    <th>Section Name</th>
+                    <th>Mobile Number</th>
+                    <th>Email ID</th>
+                    <th>Telgu Marks</th>
+                    <th>Hindi Marks</th>
+                    <th>English Marks</th>
+                    <th>Math Marks</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in Studentdata %}
+                    <tr>
+                     <td>{{ i.fname }}</td>
+                     <td>{{ i.lname }}</td>
+                     <td>{{ i.cname }}</td>
+                     <td>{{ i.sname }}</td>
+                     <td>{{ i.mobile }}</td>
+                     <td>{{ i.email }}</td>
+                     <td>{{ i.telugu }}</td>
+                     <td>{{ i.hindi }}</td>
+                     <td>{{ i.english }}</td>
+                     <td>{{ i.math }}</td>
+
+                         <td>
+                    <a href="{% url 'update' i.id %}">
+                        <i class="fa fa-pencil"></i>
+
+                    </a>
+                             </td>
+                    <td>
+                             <a href="{% url 'delete' i.id %}">
+                        <i class="fa fa-trash"></i>
+
+                    </a>
+                </td>
+
+                    </tr>
+
+
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+        {% else %}
+            <h3 class="text-danger">Data not available</h3>
+
+        {% endif %}
+
+        </div>
+    </div>
+
+</body>
+</html>

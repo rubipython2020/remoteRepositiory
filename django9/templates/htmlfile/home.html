@@ -1,0 +1,35 @@
+{% extends 'htmlfile/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+</head>
+<body>
+
+
+{% block abc %}
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+<form action="" method="POST">
+    <label><b>User Name</b></label>
+<input type="text" name="text1" class="form-control">
+<label><b>Password</b></label>
+<input type="password" name="text1" class="form-control">
+    <a href="{% url 'home' %}" class="btn btn-primary" style="margin-top: 10px">Login</a>
+
+
+
+</form>
+            </div>
+    </div>
+
+    </div>
+
+{% endblock %}
+
+
+</body>
+</html>

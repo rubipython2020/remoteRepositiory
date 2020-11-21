@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+</head>
+<body>
+<div class="row">
+        <div class="col-md-4">
+             <h1>Student Data Form</h1>
+        <center>
+            <form method="POST" action="{% url 'update_form_save' Studentdata.id %}">
+                {% csrf_token %}
+                <!--<label>Enter Your First Name</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" name="fname" class="form-control" placeholder="First Name" value="{{ Studentdata.fname }}">
+                        </div>
+                          <!--<label>Enter Your Last Name</label>-->
+                           <div class="col-md-6">
+                            <input type="text" name="lname" class="form-control" placeholder="Last Name" value="{{ Studentdata.lname }}">
+                        </div>
+                       </div>
+           <!-- <label>Enter Your Class Name</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+        <input type="text" name="cname" class="form-control" placeholder="Class Name" value="{{ Studentdata.cname }}">
+                    </div>
+            <!--<label>Enter Your Section Name</label>-->
+                        <div class="col-md-6">
+            <input type="text" name="sname" class="form-control" placeholder="Section Name" value="{{ Studentdata.sname }}">
+                    </div>
+                </div>
+            <!--<label>Enter Your Mobile Number</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+            <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" value="{{ Studentdata.mobile }}">
+                    </div>
+            <!--<label>Enter Your Email ID</label>-->
+                        <div class="col-md-6">
+            <input type="text" name="email" class="form-control" placeholder="Email ID" value="{{ Studentdata.email }}">
+                    </div>
+                </div>
+            <!--<label>Enter Your Telugu</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+            <input type="text" name="telugu" class="form-control" placeholder="Telugu Mark" value="{{ Studentdata.telugu }}">
+                    </div>
+            <!--<label>Enter Your Hindi</label>-->
+                    <div class="col-md-6">
+            <input type="text" name="hindi" class="form-control" placeholder="Hindi Mark" value="{{ Studentdata.hindi }}">
+                    </div>
+                </div>
+            <!--<label>Enter Your English</label>-->
+                <div class="row">
+                    <div class="col-md-6">
+
+            <input type="text" name="english" class="form-control" placeholder="English Marks" value="{{ Studentdata.english }}">
+                    </div>
+            <!--<label>Enter Your Math</label>-->
+                        <div class="col-md-6">
+            <input type="text" name="math" class="form-control" placeholder="Math Marks" value="{{ Studentdata.math }}">
+                        </div>
+                </div>
+
+
+            <center>
+
+            <input type="submit" value="Save" class="btn btn-success" style="margin-top: 20px">
+                </center>
+                </form>
+            </center>
+
+        </div>
+</div>
+
+</body>
+</html>

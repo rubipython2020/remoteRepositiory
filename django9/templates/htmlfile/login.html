@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+<div class="jumbotron text-center">
+
+<center>
+        <h3>Please Login Here</h3>
+
+            <form method="POST">
+                {% csrf_token %}
+            <label>Enter Username </label>
+            <input type="text" name="name" class="form-control">
+            <label>Enter password </label>
+            <input type="password" name="password" class="form-control"><br>
+            <center>
+            <input type="submit" value="Login" class="btn btn-success">
+                <a href="#">Please Register Here</a>
+                </center>
+
+
+</form>
+    </center>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+    <style>
+        body
+        {
+            background-color: darkgray;
+        }
+        ul{
+            list-style-type: none;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+<div class="row">
+<div class="col-md-4">
+
+        <form action="" method="POST">
+            <h4 class="text-danger">Please Fill Enquary Form </h4>
+            {% csrf_token %}
+            {{ form }}
+            <center>
+            <input type="submit" value="Save" class="btn btn-success">
+            <input type="reset" value="Clear" class="btn btn-danger">
+                </center>
+
+</form>
+</div>
+<div class="col-md-8">
+    {% if Enquiry %}
+
+        <table class="table table-borderless" style="background-color: aliceblue">
+            <thead class="border-bottom font-weight-bold">
+            <tr>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Trainer</th>
+                <th>Shift</th>
+                <th>Location</th>
+                <th>Gender</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for i in Enquiry %}
+                <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.mobiles }}</td>
+                <td>{{ i.email }}</td>
+                <td>{{ i.cources }}</td>
+                <td>{{ i.trainer }}</td>
+                <td>{{ i.shift }}</td>
+                <td>{{ i.location }}</td>
+                <td>{{ i.gender }}</td>
+                <td>{{ i.date }}</td>
+
+                 <td><button type="submit" class="btn">
+                        <i class="fa fa-trash-o fa-lg text-danger float-right"></i>
+
+
+                    </button>
+
+                </td>
+                    <td>
+                    <a href="{% url 'update' Studentdata.id %}">
+                 <i class="fa fa-pencil"></i>
+                    </a>
+                </td>
+                </tr>
+
+
+            {% endfor %}
+
+            </tbody>
+
+
+        </table>
+{% else %}
+        <center>
+
+                 <h5 class="text-primary" style="background-color: floralwhite">Till Now No Enquiry</h5>
+        </center>
+            {% endif %}
+
+        </div>
+
+</div>
+
+
+</body>
+</html>

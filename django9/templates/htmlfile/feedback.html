@@ -1,0 +1,74 @@
+{% extends 'htmlfile/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+</head>
+<body>
+{% block abc %}
+    <style>
+    input[name]
+    {
+        margin-top: -5px;
+
+    }
+    input[value]
+    {
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+    button
+    {
+        margin-bottom: 20px;
+    }
+
+    </style>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-4 col-md-4">
+            <form action="" method="POST">
+                {% csrf_token %}
+            <label>Enter Your Name</label>
+            <input type="text" name="name" class="form-control" >
+            <label>Enter Rating</label>
+            <input type="number" name="rating" class="form-control">
+            <label>Enter your Feedback</label>
+            <textarea type="text" name="feed" class="form-control"></textarea>
+            <center>
+
+                <button class="btn btn-success btn-lg" data-target="#entry">Enter Data</button>
+
+            </center>
+
+                </form>
+
+             {% if feed %}
+            {% for i in feed %}
+                {% if i.rating >= 6 %}
+
+               <h6 style="color: red">Name :  {{ i.name }} </h6>
+                <h6>Rating : {{ i.rating }} </h6>
+                <h6>Date : {{ i.date }}</h6>
+                <h6>Feedback : {{ i.feedback }} </h6><br>
+
+                {% endif %}
+
+
+
+
+    {% endfor %}
+        {% else %}
+          <h5 class="text-primary">Feedback not available</h5>
+        {% endif %}
+
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'htmlfile/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+</head>
+<body>
+{% block abc %}
+<h1>Hii this is Cources page </h1>
+
+
+    <div class="jumbotron">
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+            <div class="col-md-12">
+     <form action="" method="POST">
+         {% csrf_token %}
+         <label><b>Course Name</b></label>
+
+             <input type="text" name="name1" class="form-control" placeholder="Enter course name" required>
+
+         <label><b>Course Duration</b></label>
+         <input type="text" name="duration" class="form-control" placeholder="Enter course duration" required>
+         <label><b>Start Date</b></label>
+         <input type="date" name="date" class="form-control" placeholder="Enter course date" required>
+         <label><b>Timing</b></label>
+         <input type="time" name="time" class="form-control" placeholder="Enter course timimg" required>
+         <label><b>Trainer Name</b></label>
+         <input type="text" name="name2" class="form-control" placeholder="Enter trainer name" required>
+         <label><b>Trainer Experince</b></label>
+         <input type="text" name="exp1" class="form-control" placeholder="Enter trainer Experince" required>
+
+         <div class="row">
+            <div class="col-md-8">
+                <button type="submit" value="send" class="btn btn-success btn btn-block btn-lg" style="width: 150px; margin-top: 10px"><i class="fa fa-database"></i>Submit</button>
+
+            </div>
+             <div class="col-md-4">
+                <a href="{% url 'courselist' %}" class="btn btn-secondary btn-block btn-lg" style="margin-top: 12px">
+                    <i class="fas fa-stream"></i>Back To List
+                </a>
+             </div>
+         </div>
+     </form>
+
+</div>
+</div>
+    </div>
+</div>
+    </div>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include 'htmlfile/cdnfile.html' %}
+    <style>
+
+    .modal-lg
+    {
+        width: 50%;
+    }
+    </style>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+    <h1>Registration Form</h1>
+    <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#entry">Enter Data</button>
+    <button class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#display">Display Data</button>
+
+</div>
+<div class="modal" role="modal" id="entry">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header  bg-secondary text-white">
+                <h3>Student Entry</h3>
+                <button type="button" class="close" data-dismiss="modal" style="background-color: white">
+
+                </button>
+                </div>
+
+                <div class="modal-body"><br>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <label>Enter First Name</label>
+                        <input type="text" name="fname" class="form-control">
+
+                        <label>Enter Last Name </label>
+                        <input type="text" name="lname" class="form-control">
+                        <label>Enter User Name </label>
+                        <input type="text" name="username" class="form-control">
+                        <label>Enter Email ID </label>
+                        <input type="email" name="email" class="form-control">
+                        <label>Enter Password </label>
+                        <input type="password" name="password" class="form-control">
+
+                        <label>Enter Institute Name </label>
+                        <input type="text" name="iname" class="form-control">
+                        <label>Enter Location </label>
+                        <input type="text" name="location" class="form-control">
+                        <center>
+
+                        <input type="submit" value="Entry" class="btn btn-success" style="margin-top: 10px">
+                        <input type="reset" value="Clear" class="btn btn-danger" style="margin-top: 10px">
+                            </center>
+
+
+
+                    </form>
+                    </div>
+        </div>
+
+                 <div class="modal-footer  bg-secondary text-white">
+                     <h3>Thank you </h3>
+                 </div>
+
+        </div>
+
+    </div>
+
+
+<div class="modal" role="modal" id="display">
+    <div class="modal-dialog modal-lg">
+
+        <div class="modal-content" id="div1" style="width: 1000px;">
+            <div class="modal-header  bg-secondary text-white">
+                <h3>Student data</h3>
+                <button type="button" class="close" data-dismiss="modal" style="background-color: white">
+
+                </button>
+                </div>
+
+            <div class="modal-body">
+                <h1 class="text-center">Display Data</h1>
+                <div class="jumbotron">
+                {% if register %}
+                    <table class="table table-bordered">
+                        <thead class="border-bottom font-weight-bold">
+                        <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email ID</th>
+                        <th>Institute Name</th>
+                        <th>Location Name</th>
+                        </tr>
+
+                        </thead>
+                        <tbody>
+
+                        {% for register in register %}
+                            <tr>
+                            <th>{{ register.fname }}</th>
+                            <th>{{ register.lname }}</th>
+                            <th>{{ register.email }}</th>
+                            <th>{{ register.iname }}</th>
+                            <th>{{ register.location }}</th>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                                <h1 class="text-primary">Data is not avaible</h1>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer  bg-secondary text-white">
+                     <h3>Thank you </h3>
+
+
+                 </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
